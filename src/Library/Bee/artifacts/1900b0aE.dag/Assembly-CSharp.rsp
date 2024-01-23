@@ -389,8 +389,9 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.3f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.3f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.3f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
-"Assets/Scripts/FollowCamera.cs"
-"Assets/Scripts/Mover.cs"
+"Assets/Scripts/Control/PlayerController.cs"
+"Assets/Scripts/Core/FollowCamera.cs"
+"Assets/Scripts/Movement/Mover.cs"
 -langversion:9.0
 
 /deterministic
