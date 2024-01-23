@@ -295,46 +295,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d556d30cab334dd449000218c87322ef, type: 3}
---- !u!1 &141833532 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1822941118809510839, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
-  m_PrefabInstance: {fileID: 6790984033519620074}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &141833533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141833532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e2d722b7a285f4dbaf21f5304f915e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
---- !u!195 &141833534
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 141833532}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 12
-  m_Acceleration: 20
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!4 &141833538 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2653993438319074711, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
@@ -2112,7 +2072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2653993438319074711, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2653993438319074711, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2149,13 +2109,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1822941118809510839, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 141833534}
-    - targetCorrespondingSourceObject: {fileID: 1822941118809510839, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 141833533}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
