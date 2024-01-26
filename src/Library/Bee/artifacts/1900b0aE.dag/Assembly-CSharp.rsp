@@ -391,6 +391,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.2.3f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/Combat/CombatTarget.cs"
 "Assets/Scripts/Combat/Fighter.cs"
+"Assets/Scripts/Combat/Health.cs"
 "Assets/Scripts/Control/PlayerController.cs"
 "Assets/Scripts/Core/ActionScheduler.cs"
 "Assets/Scripts/Core/FollowCamera.cs"
