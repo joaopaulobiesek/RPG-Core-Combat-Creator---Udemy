@@ -37,9 +37,23 @@ namespace SRC.Combat
             transform.LookAt(target.transform);
             if (timeSinceLastAttack > timeBetweenAttacks)
             {
-                GetComponent<Animator>().SetTrigger("attack");
+                TriggerAttack();
                 timeSinceLastAttack = 0;
             }
+        }
+
+        private void TriggerAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("stopAttack");
+            GetComponent<Animator>().SetTrigger("attack");
+        }
+
+        //Hit evento para pegar o hit da animação
+        void Hit()
+        {
+            if (target == null)
+                return;
+            target.TakeDamage(weaponDamage);
         }
 
         private bool GetIsInRange()
@@ -64,14 +78,14 @@ namespace SRC.Combat
 
         public void Cancel()
         {
-            GetComponent<Animator>().SetTrigger("stopAttack");
+            StopAttack();
             target = null;
         }
 
-        //Hit evento para pegar o hit da animação
-        void Hit()
+        private void StopAttack()
         {
-            target.TakeDamage(weaponDamage);
+            GetComponent<Animator>().ResetTrigger("attack");
+            GetComponent<Animator>().SetTrigger("stopAttack");
         }
     }
 }
