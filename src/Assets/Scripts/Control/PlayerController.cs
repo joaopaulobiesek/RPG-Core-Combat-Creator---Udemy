@@ -2,13 +2,23 @@ using UnityEngine;
 using SRC.Movement;
 using System;
 using SRC.Combat;
+using SRC.Core;
 
 namespace SRC.Control
 {
     public class PlayerController : MonoBehaviour
     {
+        Health health;
+
+        private void Start()
+        {
+            health = GetComponent<Health>();
+        }
+
         private void Update()
         {
+            if (health.IsDead())
+                return;
             if (InteractWithCombat())
                 return;
             if (InteractWithMovement())
@@ -21,11 +31,14 @@ namespace SRC.Control
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (!GetComponent<Fighter>().CanAttack(target))
+                if (target == null)
+                    continue;
+                    
+                if (!GetComponent<Fighter>().CanAttack(target.gameObject))
                     continue;
 
-                if (Input.GetMouseButtonDown(0))
-                    GetComponent<Fighter>().Attack(target);
+                if (Input.GetMouseButton(0))
+                    GetComponent<Fighter>().Attack(target.gameObject);
 
                 return true;
             }
@@ -40,7 +53,7 @@ namespace SRC.Control
             if (hasHit)
             {
                 if (Input.GetMouseButton(0))
-                    GetComponent<Mover>().StartMoveAction(hit.point);
+                    GetComponent<Mover>().StartMoveAction(hit.point, 1f);
                 return true;
             }
             return false;
