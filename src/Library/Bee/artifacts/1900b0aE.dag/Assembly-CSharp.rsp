@@ -467,6 +467,7 @@
 "Assets/Asset Packs/ExplosiveLLC/SuperCharacterController/Code/Examples/PlayerMachineDebug.cs"
 "Assets/Asset Packs/ExplosiveLLC/SuperCharacterController/Code/Examples/SimpleStateMachine.cs"
 "Assets/Asset Packs/ExplosiveLLC/SuperCharacterController/Code/Math3d.cs"
+"Assets/Scripts/Cinematics/CinematicTrigger.cs"
 "Assets/Scripts/Combat/CombatTarget.cs"
 "Assets/Scripts/Combat/Fighter.cs"
 "Assets/Scripts/Control/AIController.cs"
