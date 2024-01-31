@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638420721769153342
-    m_Hash: 3051930216
+      ticks: 638423323761949668
+    m_Hash: 174858203
   m_LockFileStatus:
     m_FilePath: C:/0-Repos/RPG-Core-Combat-Creator---Udemy/src/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638420721769198601
-    m_Hash: 641080521
+      ticks: 638423323761962963
+    m_Hash: 1951979710
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
