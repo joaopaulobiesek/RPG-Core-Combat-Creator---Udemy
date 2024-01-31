@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using SRC.Core;
 using SRC.Saving;
 using UnityEngine;
@@ -35,7 +36,7 @@ namespace SRC.Movement
         public void MoveTo(Vector3 destination, float speedFraction)
         {
             navMeshAgent.destination = destination;
-            navMeshAgent.speed= maxSpeed * Mathf.Clamp01(speedFraction);
+            navMeshAgent.speed = maxSpeed * Mathf.Clamp01(speedFraction);
             navMeshAgent.isStopped = false;
         }
 
@@ -52,16 +53,27 @@ namespace SRC.Movement
             GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
 
+        [System.Serializable]
+        struct MoverSaveData
+        {
+            public SerializableVector3 position;
+            public SerializableVector3 rotation;
+        }
+
         public object CaptureState()
         {
-            return new SerializableVector3(transform.position);
+            MoverSaveData data = new MoverSaveData();
+            data.position = new SerializableVector3(transform.position);
+            data.rotation = new SerializableVector3(transform.eulerAngles);
+            return data;
         }
 
         public void RestoreState(object state)
         {
-            SerializableVector3 position = (SerializableVector3)state;
+            MoverSaveData data = (MoverSaveData)state;
             GetComponent<NavMeshAgent>().enabled = false;
-            transform.position = position.ToVector();
+            transform.position = data.position.ToVector();
+            transform.eulerAngles = data.rotation.ToVector();
             GetComponent<NavMeshAgent>().enabled = true;
         }
     }
