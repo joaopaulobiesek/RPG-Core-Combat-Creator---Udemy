@@ -298,7 +298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128557743}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.008149106, y: 0.9482705, z: -0.024421997, w: -0.31641787}
+  m_LocalRotation: {x: -0.008149103, y: 0.9482705, z: -0.024421994, w: -0.3164179}
   m_LocalPosition: {x: -45.95, y: 17.23, z: -41.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -801,6 +801,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ada23a6ef88d194e832263f906fb0af, type: 3}
+--- !u!114 &277868940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4850320214721295836, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
+  m_PrefabInstance: {fileID: 1069501867}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &321956538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2679,6 +2690,10 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: 0afc9533-14d2-4c05-a3bd-d74c3b14ad3d
       objectReference: {fileID: 0}
+    - target: {fileID: 5251987073182342599, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
+      propertyPath: field of view
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 6595407600033386441, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
       propertyPath: m_LocalPosition.x
       value: -76.572685
@@ -2690,6 +2705,22 @@ PrefabInstance:
     - target: {fileID: 6595407600033386441, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
       propertyPath: m_LocalPosition.z
       value: 100.80095
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595407600033386441, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5547487
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595407600033386441, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.21134493
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595407600033386441, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.74858594
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595407600033386441, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.29530713
       objectReference: {fileID: 0}
     - target: {fileID: 8605682939724962232, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3359,6 +3390,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9ada23a6ef88d194e832263f906fb0af, type: 3}
   m_PrefabInstance: {fileID: 577556000}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1372453248 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9110494089885046350, guid: 82c0fbfafe553244998a2eb25a96d346, type: 3}
+  m_PrefabInstance: {fileID: 1069501867}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1373561891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4716,7 +4758,7 @@ PlayableDirector:
   m_InitialTime: 0
   m_SceneBindings:
   - key: {fileID: 6676199931282190929, guid: df17c2ce7bdb8a448bb33c8bfe188599, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 1372453248}
   - key: {fileID: -6340634840770690423, guid: df17c2ce7bdb8a448bb33c8bfe188599, type: 2}
     value: {fileID: 128557745}
   - key: {fileID: 5804705061138443307, guid: df17c2ce7bdb8a448bb33c8bfe188599, type: 2}
@@ -4727,6 +4769,7 @@ PlayableDirector:
     - 655e72684ca43a4408e6f4ca2ea303e9: {fileID: 618491323}
     - e40deac67825a2b4e8f45728c9b7eec8: {fileID: 0}
     - 75251f25395958745a12b5ff17d3f703: {fileID: 1676003366}
+    - 0f10cebfc8970d342b1ce5447aa3916c: {fileID: 277868940}
     - 45603d92e6b370e45a3700a09c07738b: {fileID: 128557746}
     - bd6ac7940598e1f4483687f346d97edd: {fileID: 62190684}
 --- !u!65 &1912243755
