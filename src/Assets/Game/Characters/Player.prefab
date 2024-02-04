@@ -66,6 +66,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 435482, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
   m_PrefabInstance: {fileID: 645130316897872913}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &645130316898330005 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 461188, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 645130316897872913}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2904427931940583927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,6 +79,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1418325365611142627, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
+      propertyPath: weaponPerfab
+      value: 
+      objectReference: {fileID: 740839764144255625, guid: d10617336bcc21b42857a45c6ff83073, type: 3}
+    - target: {fileID: 1418325365611142627, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
+      propertyPath: handTransform
+      value: 
+      objectReference: {fileID: 645130316898330005}
     - target: {fileID: 1822941118809510839, guid: d7591b8f1ba33f34ea4d3b92d203d17b, type: 3}
       propertyPath: m_Name
       value: Player

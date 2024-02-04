@@ -1,3 +1,4 @@
+using System;
 using SRC.Core;
 using SRC.Movement;
 using UnityEngine;
@@ -9,9 +10,16 @@ namespace SRC.Combat
         [SerializeField] float weaponRange = 2f;
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] float weaponDamage = 5f;
+        [SerializeField] GameObject weaponPerfab = null;
+        [SerializeField] Transform handTransform = null;
 
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
+
+        private void Start()
+        {
+            SpawnWeapon();
+        }
 
         private void Update()
         {
@@ -30,6 +38,11 @@ namespace SRC.Combat
                 GetComponent<Mover>().Cancel();
                 AttackBehaviour();
             }
+        }
+
+        private void SpawnWeapon()
+        {
+            Instantiate(weaponPerfab, handTransform);
         }
 
         private void AttackBehaviour()
