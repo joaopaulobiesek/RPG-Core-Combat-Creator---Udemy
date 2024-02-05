@@ -7,18 +7,18 @@ namespace SRC.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float weaponRange = 2f;
         [SerializeField] float timeBetweenAttacks = 1f;
-        [SerializeField] float weaponDamage = 5f;
-        [SerializeField] GameObject weaponPerfab = null;
-        [SerializeField] Transform handTransform = null;
+        [SerializeField] Transform rightHandTransform = null;
+        [SerializeField] Transform leftHandTransform = null;
+        [SerializeField] Weapon deafultWeapon = null;
 
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
+        Weapon currentWeapon = null;
 
         private void Start()
         {
-            SpawnWeapon();
+            EquipWeapon(deafultWeapon);
         }
 
         private void Update()
@@ -40,9 +40,11 @@ namespace SRC.Combat
             }
         }
 
-        private void SpawnWeapon()
+        public void EquipWeapon(Weapon weapon)
         {
-            Instantiate(weaponPerfab, handTransform);
+            currentWeapon = weapon;
+            Animator animator = GetComponent<Animator>();
+            weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
         private void AttackBehaviour()
@@ -66,12 +68,22 @@ namespace SRC.Combat
         {
             if (target == null)
                 return;
-            target.TakeDamage(weaponDamage);
+
+            if (currentWeapon.HasProjectile())
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+            else
+                target.TakeDamage(currentWeapon.GetDamage());
+        }
+
+        //Shoot Evento para pegar o hit da animação
+        void Shoot()
+        {
+            Hit();
         }
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
         }
 
         public bool CanAttack(GameObject combatTarget)

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1418325365611142627}
   - component: {fileID: 4017386392708783389}
   - component: {fileID: 897906919016071794}
+  - component: {fileID: 6494694236788878828}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -152,9 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89042c5484387624bb93b533fbadf955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponRange: 2
   timeBetweenAttacks: 1
-  weaponDamage: 5
+  handTransform: {fileID: 0}
+  deafultWeapon: {fileID: 0}
 --- !u!114 &4017386392708783389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,3 +182,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uniqueIdentifier: 
+--- !u!54 &6494694236788878828
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822941118809510839}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
