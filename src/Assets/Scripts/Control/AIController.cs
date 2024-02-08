@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using SRC.Attributes;
 using SRC.Combat;
 using SRC.Core;
 using SRC.Movement;

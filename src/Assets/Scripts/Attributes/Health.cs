@@ -1,13 +1,20 @@
+using SRC.Core;
 using SRC.Saving;
+using SRC.Stats;
 using UnityEngine;
 
-namespace SRC.Core
+namespace SRC.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
         [SerializeField] float healthPoints = 100f;
 
         bool isDead = false;
+
+        private void Start()
+        {
+            healthPoints = GetComponent<BaseStats>().GetHealth();
+        }
 
         public bool IsDead()
         {
@@ -20,6 +27,10 @@ namespace SRC.Core
             if (healthPoints == 0)
                 Die();
         }
+
+        public float GetPercentage() =>
+            100 * (healthPoints / GetComponent<BaseStats>().GetHealth());
+
 
         private void Die()
         {

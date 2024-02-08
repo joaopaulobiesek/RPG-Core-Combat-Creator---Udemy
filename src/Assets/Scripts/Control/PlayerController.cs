@@ -3,6 +3,7 @@ using SRC.Movement;
 using System;
 using SRC.Combat;
 using SRC.Core;
+using SRC.Attributes;
 
 namespace SRC.Control
 {

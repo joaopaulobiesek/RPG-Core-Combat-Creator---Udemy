@@ -1,4 +1,5 @@
 using System;
+using SRC.Attributes;
 using SRC.Core;
 using SRC.Movement;
 using SRC.Saving;
@@ -116,13 +117,8 @@ namespace SRC.Combat
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
-        public object CaptureState()
-        {
-            if (currentWeapon == null)
-                return "";
-            else
-                return currentWeapon.name;
-        }
+        public object CaptureState() =>
+            currentWeapon == null ? "" : currentWeapon.name;
 
         public void RestoreState(object state)
         {
