@@ -1,11 +1,12 @@
 using System;
 using SRC.Core;
 using SRC.Movement;
+using SRC.Saving;
 using UnityEngine;
 
 namespace SRC.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
@@ -18,7 +19,8 @@ namespace SRC.Combat
 
         private void Start()
         {
-            EquipWeapon(deafultWeapon);
+            if (currentWeapon == null)
+                EquipWeapon(deafultWeapon);
         }
 
         private void Update()
@@ -112,6 +114,21 @@ namespace SRC.Combat
         {
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
+        }
+
+        public object CaptureState()
+        {
+            if (currentWeapon == null)
+                return "";
+            else
+                return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 }
