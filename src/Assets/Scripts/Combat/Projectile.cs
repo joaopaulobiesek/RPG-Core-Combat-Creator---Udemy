@@ -15,6 +15,7 @@ namespace SRC.Combat
         [SerializeField] GameObject[] destroyOnHit = null;
         [SerializeField] float lifeAfeterImpact = 2;
         Health target = null;
+        GameObject instigator = null;
         float damage = 0;
 
         private void Start()
@@ -33,10 +34,11 @@ namespace SRC.Combat
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, GameObject instigator, float damage)
         {
             this.target = target;
             this.damage = damage;
+            this.instigator = instigator;
 
             Destroy(gameObject, maxLifeTime);
         }
@@ -57,7 +59,7 @@ namespace SRC.Combat
             if (target.IsDead())
                 return;
 
-            target.TakeDamage(damage);
+            target.TakeDamage(instigator, damage);
 
             if (hitEffect != null)
                 Instantiate(hitEffect, GetAimLocation(), transform.rotation);

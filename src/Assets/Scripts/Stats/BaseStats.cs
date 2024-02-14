@@ -11,7 +11,7 @@ namespace SRC.Stats
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
 
-        public float GetHealth() =>
-            progression.GetHealth(characterClass, startingLevel);
+        public float GetStat(Stat stat) =>
+            progression.GetStat(stat, characterClass, startingLevel);
     }
 }

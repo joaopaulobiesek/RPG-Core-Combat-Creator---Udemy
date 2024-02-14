@@ -50,6 +50,8 @@ namespace SRC.Combat
             weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
 
+        public Health GetTarget() => target;
+
         private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
@@ -73,9 +75,9 @@ namespace SRC.Combat
                 return;
 
             if (currentWeapon.HasProjectile())
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
             else
-                target.TakeDamage(currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, currentWeapon.GetDamage());
         }
 
         //Shoot Evento para pegar o hit da animação
