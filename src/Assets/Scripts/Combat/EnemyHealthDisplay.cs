@@ -26,7 +26,7 @@ namespace SRC.Combat
             if (health != null)
             {
                 var life = String.Format("Enemy: {0:0.0}%", health.GetPercentage());
-                Debug.Log(life);
+                Debug.Log("Enemy: " + life);
                 //GetComponent<Text>().text = life;
             }
         }
