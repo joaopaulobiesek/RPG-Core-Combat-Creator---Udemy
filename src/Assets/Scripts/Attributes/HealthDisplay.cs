@@ -17,7 +17,7 @@ namespace SRC.Attributes
         {
             var life = String.Format("{0:0.0}%", health.GetPercentage());
             Debug.Log("Health: " + life);
-            //GetComponent<Text>().text = life;
+            //GetComponent<Text>().text = String.Format("{0:0}/{1:0}", health.GetHealthPoints(), health.GetMaxHealthPoints());
         }
     }
 }

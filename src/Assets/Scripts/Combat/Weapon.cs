@@ -11,6 +11,7 @@ namespace SRC.Combat
         [SerializeField] AnimatorOverrideController animatorOverride = null;
         [SerializeField] GameObject equippedPrefab = null;
         [SerializeField] float weaponDamage = 5f;
+        [SerializeField] float percentageBonus = 0;
         [SerializeField] float weaponRange = 2f;
         [SerializeField] bool isRightHanded = true;
         [SerializeField] Projectile projectile = null;
@@ -60,10 +61,10 @@ namespace SRC.Combat
             return handTransform;
         }
 
-        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target, GameObject instigator)
+        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target, GameObject instigator, float calculatedDamage)
         {
             Projectile projectileInstance = Instantiate(projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
-            projectileInstance.SetTarget(target, instigator, weaponDamage);
+            projectileInstance.SetTarget(target, instigator, calculatedDamage);
         }
 
         public bool HasProjectile() =>
@@ -71,6 +72,9 @@ namespace SRC.Combat
 
         public float GetDamage() =>
             weaponDamage;
+
+        public float GetPercentageBonus() =>
+            percentageBonus;
 
         public float GetRange() =>
             weaponRange;

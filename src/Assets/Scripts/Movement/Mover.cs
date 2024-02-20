@@ -15,10 +15,14 @@ namespace SRC.Movement
         NavMeshAgent navMeshAgent;
         Health health;
 
+        private void Awake()
+        {
+            navMeshAgent = GetComponent<NavMeshAgent>();
+            health = GetComponent<Health>();
+        }
+
         private void Start()
         {
-            health = GetComponent<Health>();
-            navMeshAgent = GetComponent<NavMeshAgent>();
         }
 
         void Update()
@@ -71,11 +75,11 @@ namespace SRC.Movement
 
         public void RestoreState(object state)
         {
-            MoverSaveData data = (MoverSaveData)state;
-            GetComponent<NavMeshAgent>().enabled = false;
-            transform.position = data.position.ToVector();
-            transform.eulerAngles = data.rotation.ToVector();
-            GetComponent<NavMeshAgent>().enabled = true;
+            SerializableVector3 position = (SerializableVector3)state;
+            navMeshAgent.enabled = false;
+            transform.position = position.ToVector();
+            navMeshAgent.enabled = true;
+            GetComponent<ActionScheduler>().CancelCurrentAction();
         }
     }
 }

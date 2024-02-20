@@ -11,7 +11,7 @@ namespace SRC.Control
     {
         Health health;
 
-        private void Start()
+        private void Awake()
         {
             health = GetComponent<Health>();
         }

@@ -1,28 +1,39 @@
-using System;
+using System.Collections.Generic;
 using SRC.Attributes;
 using SRC.Core;
 using SRC.Movement;
 using SRC.Saving;
+using SRC.Stats;
 using UnityEngine;
+using GameDevTV.Utils;
+using System;
 
 namespace SRC.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
         [SerializeField] float timeBetweenAttacks = 1f;
         [SerializeField] Transform rightHandTransform = null;
         [SerializeField] Transform leftHandTransform = null;
-        [SerializeField] Weapon deafultWeapon = null;
+        [SerializeField] Weapon defaultWeapon = null;
 
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
-        Weapon currentWeapon = null;
+        LazyValue<Weapon> currentWeapon;
 
-        private void Start()
+        private void Awake()
         {
-            if (currentWeapon == null)
-                EquipWeapon(deafultWeapon);
+            currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
         }
+
+        private Weapon SetupDefaultWeapon()
+        {
+            AttachWeapon(defaultWeapon);
+            return defaultWeapon;
+        }
+
+        private void Start() =>
+            currentWeapon.ForceInit();
 
         private void Update()
         {
@@ -45,7 +56,12 @@ namespace SRC.Combat
 
         public void EquipWeapon(Weapon weapon)
         {
-            currentWeapon = weapon;
+            currentWeapon.value = weapon;
+            AttachWeapon(weapon);
+        }
+
+        private void AttachWeapon(Weapon weapon)
+        {
             Animator animator = GetComponent<Animator>();
             weapon.Spawn(rightHandTransform, leftHandTransform, animator);
         }
@@ -73,11 +89,11 @@ namespace SRC.Combat
         {
             if (target == null)
                 return;
-
-            if (currentWeapon.HasProjectile())
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
+            float damage = GetComponent<BaseStats>().GetStat(Stat.Damage);
+            if (currentWeapon.value.HasProjectile())
+                currentWeapon.value.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject, damage);
             else
-                target.TakeDamage(gameObject, currentWeapon.GetDamage());
+                target.TakeDamage(gameObject, damage);
         }
 
         //Shoot Evento para pegar o hit da animação
@@ -86,10 +102,8 @@ namespace SRC.Combat
             Hit();
         }
 
-        private bool GetIsInRange()
-        {
-            return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.GetRange();
-        }
+        private bool GetIsInRange()=>
+            Vector3.Distance(transform.position, target.transform.position) < currentWeapon.value.GetRange();
 
         public bool CanAttack(GameObject combatTarget)
         {
@@ -119,8 +133,24 @@ namespace SRC.Combat
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
+        public IEnumerable<float> GetAdditiveModifiers(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.value.GetDamage();
+            }
+        }
+
+        public IEnumerable<float> GetPercentageModifiers(Stat stat)
+        {
+            if (stat == Stat.Damage)
+            {
+                yield return currentWeapon.value.GetPercentageBonus();
+            }
+        }
+
         public object CaptureState() =>
-            currentWeapon == null ? "" : currentWeapon.name;
+            currentWeapon == null ? "" : currentWeapon.value.name;
 
         public void RestoreState(object state)
         {

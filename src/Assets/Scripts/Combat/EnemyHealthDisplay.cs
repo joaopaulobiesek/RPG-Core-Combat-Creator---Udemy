@@ -27,7 +27,7 @@ namespace SRC.Combat
             {
                 var life = String.Format("Enemy: {0:0.0}%", health.GetPercentage());
                 Debug.Log("Enemy: " + life);
-                //GetComponent<Text>().text = life;
+                //GetComponent<Text>().text = String.Format("{0:0}/{1:0}", health.GetHealthPoints(), health.GetMaxHealthPoints());
             }
         }
     }

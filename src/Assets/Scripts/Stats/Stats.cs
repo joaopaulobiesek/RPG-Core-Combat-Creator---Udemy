@@ -4,6 +4,7 @@ namespace SRC.Stats
     {
         Health,
         ExperienceReward,
-        ExperienceToLevelUp
+        ExperienceToLevelUp,
+        Damage
     }
 }
